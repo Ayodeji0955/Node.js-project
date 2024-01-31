@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Response, Request, NextFunction } from 'express'
 import { config } from 'dotenv'
 import colors from 'colors'
 
@@ -6,6 +6,20 @@ import colors from 'colors'
 config();
 
 const app = express()
+
+app.get('/', (req: Request, res: Response, next: NextFunction) => {
+    res.status(200).json({
+        error: false,
+        errors: [],
+        message: 'success',
+        data: {
+            name: 'First-node-server',
+            version: '1.0.0'
+        },
+        status: 200
+
+    })
+})
 
 const PORT = process.env.PORT || 5000
 
