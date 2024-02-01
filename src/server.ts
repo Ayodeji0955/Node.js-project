@@ -8,6 +8,29 @@ config();
 const app = express()
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
+
+    const score:number = 90;
+
+    switch (score) {
+        case 70:
+            console.log('The score is ' + score);
+        break;
+
+        case 80:
+            console.log('The score is ' + score);
+        break;
+
+        case 90:
+            console.log('The score is ' + score);
+        break;
+
+        default:
+            console.log('The score is ' + score);
+        break;
+    }
+
+
+
     res.status(200).json({
         error: false,
         errors: [],
@@ -24,7 +47,7 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
 const PORT = process.env.PORT || 5000
 
 const server = app.listen(PORT, ()=> {
-    console.log(colors.bold.green(`Node server running at ${process.env.NODE_ENV} mode`))
+    console.log(colors.bold.green(`Node server running at ${process.env.NODE_ENV} mode on port ${PORT}`))
 })
 
 // handle unhandledRejection errors
