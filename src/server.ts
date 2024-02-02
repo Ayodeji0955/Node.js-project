@@ -7,27 +7,45 @@ config();
 
 const app = express()
 
+// function expression or declaration
+function testNumber(num: number) {
+    if (num > 0) {
+        console.log(num + ' is positive');
+    }
+}
+
+
+function doSomething() {
+    const score:number = 90;
+    
+    // call
+    testNumber(score);
+
+
+    // switch (score) {
+    //     case 70:
+    //         console.log('The score is ' + score);
+    //     break;
+
+    //     case 80:
+    //         console.log('The score is ' + score);
+    //     break;
+
+    //     case 90:
+    //         console.log('The score is ' + score);
+    //     break;
+
+    //     default:
+    //         console.log('The score is ' + score);
+    //     break;
+    // }
+}
+
+//function call
+doSomething();
+
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
 
-    const score:number = 90;
-
-    switch (score) {
-        case 70:
-            console.log('The score is ' + score);
-        break;
-
-        case 80:
-            console.log('The score is ' + score);
-        break;
-
-        case 90:
-            console.log('The score is ' + score);
-        break;
-
-        default:
-            console.log('The score is ' + score);
-        break;
-    }
 
 
 
