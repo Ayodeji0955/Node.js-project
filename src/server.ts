@@ -16,10 +16,12 @@ function testNumber(num: number) {
 
 
 function doSomething() {
-    const score:number = 90;
+    const age: number = parseInt((process.env.VAR_AGE || 90).toString());
+    console.log(age)
+    // const score:number = 90;
     
     // call
-    testNumber(score);
+    // testNumber(score);
 
 
     // switch (score) {

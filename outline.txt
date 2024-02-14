@@ -1,0 +1,12 @@
+
+
+// Default values ==> 
+// Template literals 
+// Destructring 
+// Function synthax
+// Arrow Function
+// Map
+// Filter
+// Find 
+// findIndex 
+//indexOf
