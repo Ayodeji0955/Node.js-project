@@ -1,8 +1,8 @@
 
 
-// Default values ==> 
-// Template literals 
-// Destructring 
+// Default values           ==> || 50
+// Template literals        ==> ${name}
+// Destructring             ==> const { a, b }
 // Function synthax
 // Arrow Function
 // Map

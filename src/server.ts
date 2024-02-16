@@ -1,6 +1,7 @@
 import express, { Response, Request, NextFunction } from 'express'
 import { config } from 'dotenv'
 import colors from 'colors'
+import { idText } from 'typescript';
 
 // load the env vars
 config();
@@ -15,15 +16,102 @@ function testNumber(num: number) {
 }
 
 
-function doSomething() {
-    const age: number = parseInt((process.env.VAR_AGE || 90).toString());
-    console.log(age)
+
+// STUDENT'S OBJECT
+    const students: any = {
+
+        details:[
+            {
+                id: 1,
+                name: 'John',
+                age: 20
+            },
+            {
+                id: 2,
+                name: 'Matter',
+                age: 22
+            }
+        ],
+        scores:[
+            {
+                id: 1,
+                studentId: 1,
+                score: 70,
+                grade: 'A'
+            },
+            {
+                id: 2,
+                studentId: 2,
+                score: 35,
+                grade: 'D'
+            }
+
+
+        ],
+    }
+
+// ARROW FUNCTION
+const getStudents = (data: Array<any>) => {
+    data.forEach((stud) => {
+        console.log(`Name: ${stud.name} Age: ${stud.age}`);
+    })
+}
+
+// ANOTHER WAY TO WRITE ARROW FUNCTION
+const getScores = (data: Array<any>): Array<number> => {
+    let result: Array<number> = [];
+    data.forEach((score) => {
+        result.push(score.score)
+    })
+
+    return result
+}
+
+
+const testFuncs = (data: Array<any>): void => {
+    // MAP
+    const test = data.map((stud) => stud.name === 'John');
+    console.log(test);
+    // FILTER
+    const test2 = data.filter((stud) => stud.age > 10 );
+    console.log(test2[0]);
+}
+
+    
+// ES5 FUNCTION SYNTHAX
+  function doSomething() {
+// DEFAULT VALUE
+    const age: number = parseInt((process.env.VAR_AGE || 40).toString());
+// TEMPLATE LITERALS
+    const printv = `my age is ${ age + 2} and I am still younger than my father who is ${ age - 2}`
+    console.log(printv)
+
+// DESTRUCTURING     
+    const { details, scores } = students;
+    // console.log(scores);
+    // console.log(details);
+
+
+// Function call
+    // getStudents(details)
+
     // const score:number = 90;
     
     // call
     // testNumber(score);
+// Another Function Call
+    // const scores = getScores(scores);
+    // const studScore = getScore(score)
+    
+    // studentScores.forEach((s)) => {
+        // console.log(`Score: ${s}`);
+    //}
+
+    testFuncs(details);
 
 
+
+// SWITCH STATEMENT    
     // switch (score) {
     //     case 70:
     //         console.log('The score is ' + score);
@@ -45,6 +133,12 @@ function doSomething() {
 
 //function call
 doSomething();
+
+
+// ARROW FUNCTION SYNTHAX
+// const function_name = () => {
+    // logic
+// }
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
 
